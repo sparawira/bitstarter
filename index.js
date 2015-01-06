@@ -6,8 +6,7 @@ app.set('port', (process.env.PORT || 5000))
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', function(request, response) {
-  var buf = fs.readFile('index.html');
-  var str = buf.toString('ascii');
+  var str = fs.readFile('index.html', 'ascii');
   response.send(str)
 })
 
