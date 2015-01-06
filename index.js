@@ -5,7 +5,9 @@ app.set('port', (process.env.PORT || 5000))
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', function(request, response) {
-  response.send('Hello World2!')
+  var buf = fs.readFile('index.html');
+  var str = buf.toString('ascii');
+  response.send(str)
 })
 
 app.listen(app.get('port'), function() {
